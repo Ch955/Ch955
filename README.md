@@ -45,11 +45,17 @@ I design metadata-driven ETL/ELT frameworks, incremental loads and SCD Type 1 & 
 
 ---
 
-## 🛠️ Currently building
+## 🛠️ Projects
 
-**ShopStream: an end-to-end Azure retail lakehouse** *(in progress)*
-Metadata-driven ADF ingestion with watermark incremental loads → ADLS Gen2 → Azure Databricks Bronze/Silver/Gold, SCD Type 2 customer dimension with MERGE, data-quality checks, and a Power BI report.
-<!-- Replace with the repo link once it's public: [ShopStream repo](https://github.com/Ch955/shopstream) -->
+### 🛒 [ShopStream](https://github.com/Ch955/shopstream): end-to-end e-commerce data platform on Azure *(in progress)*
+Olist dataset (~100k orders, 9 tables) in Azure SQL as a live OLTP source → **metadata-driven ADF pipeline with per-table `updated_at` watermarks** → ADLS Gen2 Bronze → Azure Databricks Silver/Gold (planned).
+
+- ✅ Olist loaded into Azure SQL Database with constraints and validation scripts
+- ✅ ADLS Gen2 + ADF metadata-driven copy to Bronze: **full load of 1.55M rows; incremental runs pick up only changed rows** (tested with 50 and 10 new rows)
+- 🔜 Order simulator, Databricks Bronze → Silver → Gold with DQ checks and SCD2, Fabric + Power BI, CI/CD
+
+### 📡 [Job Radar](https://github.com/Ch955/Job-board): a ₹0-cost job-alert system
+A Python fetcher and scorer that runs on **GitHub Actions** every 3 hours, writes a JSON data file, and serves a mobile web app on GitHub Pages with phone alerts. No paid APIs or hosting.
 
 ---
 
